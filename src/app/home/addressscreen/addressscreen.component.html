@@ -1,3 +1,22 @@
-<p>
-  addressscreen works!
-</p>
+<ion-content>
+  <ion-input placeholder="Flat Number"></ion-input>
+  <ion-input placeholder="Wing"></ion-input>
+  <ion-input placeholder="Building & Street Address"></ion-input>
+  <ion-input placeholder="Area"></ion-input>
+  <ion-input placeholder="City"></ion-input>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="gotoHomePage()">
+            Skip
+          </ion-button>
+        </ion-buttons> 
+        <ion-buttons slot="start">
+          <ion-button (click)="gotoHomePage()">
+            Update
+          </ion-button>
+        </ion-buttons>        
+      </ion-toolbar>
+</ion-footer>
+  

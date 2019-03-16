@@ -3,11 +3,16 @@
 </ion-content>
 <ion-footer>
     <ion-toolbar>
-        <ion-input clearInput placeholder="Enter your Mobile number"></ion-input>
-        <ion-buttons slot="end">
-            <ion-button (click)="gotoOtpPage()">
-              GO
-            </ion-button>
-          </ion-buttons>
+        <ion-item-group>
+          <ion-item>
+            <ion-label position="stacked">Mobile Number</ion-label>
+            <ion-input placeholder="Enter your Mobile number"></ion-input>
+            <ion-buttons slot="end">
+                <ion-button (click)="gotoOtpPage()">
+                  GO
+                </ion-button>
+              </ion-buttons>
+          </ion-item>
+        </ion-item-group>
       </ion-toolbar>
 </ion-footer>

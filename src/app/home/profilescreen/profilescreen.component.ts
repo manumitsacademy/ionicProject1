@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profilescreen',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilescreenComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit() {}
 
+  gotoAddressPage(){
+    this.router.navigate(['/home/address'])
+  }
+  
 }

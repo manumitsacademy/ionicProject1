@@ -30,6 +30,10 @@ import { OtpscreenComponent } from './otpscreen/otpscreen.component';
       {
         path: 'profile',
         component: ProfilescreenComponent
+      },
+      {
+        path: 'address',
+        component: AddressscreenComponent
       }
     ])
   ],
