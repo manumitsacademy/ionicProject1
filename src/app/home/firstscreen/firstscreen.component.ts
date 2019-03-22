@@ -8,10 +8,15 @@ import { Router } from '@angular/router';
 })
 export class FirstscreenComponent implements OnInit {
 
-  constructor(public router:Router) { }
-
+  constructor(public router:Router) {
+    if(window.localStorage.getItem('mobilenumber')){
+      this.router.navigate(['/home'])
+    }
+  }
+  mobilenumber;
   ngOnInit() {}
-  gotoOtpPage(){
+  gotoOtpPage(){    
+    window.localStorage.setItem('mobilenumber',this.mobilenumber)
     this.router.navigate(['/home/otpscreen'])
   }
 }

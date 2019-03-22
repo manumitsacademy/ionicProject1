@@ -9,10 +9,13 @@ import { Router } from '@angular/router';
 export class ProfilescreenComponent implements OnInit {
 
   constructor(public router:Router) { }
-
+  name;
+  emailid;
   ngOnInit() {}
 
   gotoAddressPage(){
+    window.localStorage.setItem('name',this.name);
+    window.localStorage.setItem('emailid',this.emailid);
     this.router.navigate(['/home/address'])
   }
   

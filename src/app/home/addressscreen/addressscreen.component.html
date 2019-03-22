@@ -1,10 +1,11 @@
 <ion-content>
-  <ion-input placeholder="Flat Number"></ion-input>
-  <ion-input placeholder="Wing"></ion-input>
-  <ion-input placeholder="Building & Street Address"></ion-input>
-  <ion-input placeholder="Area"></ion-input>
-  <ion-input placeholder="City"></ion-input>
+  <ion-input placeholder="Flat Number" [(ngModel)]="flatNumber"></ion-input>
+  <ion-input placeholder="Wing" [(ngModel)]="wing"></ion-input>
+  <ion-input placeholder="Society Name" [(ngModel)]="societyName"></ion-input>
+  <ion-input placeholder="Area" [(ngModel)]="area"></ion-input>
+  <ion-input placeholder="City" [(ngModel)]="city"></ion-input>
 </ion-content>
+
 <ion-footer>
     <ion-toolbar>
         <ion-buttons slot="start">

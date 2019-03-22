@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [formGroup]="subscriptionForm">
+  <ion-list>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img [src]="product.productImageUrl"/>
+      </ion-thumbnail>
+      <ion-label>{{product.productName}}</ion-label>
+      <ion-text>Rs.{{product.productPrice}}/Liter</ion-text>
+    </ion-item>     
+    <ion-item>
+      <ion-range min="0" max="10" snaps="true" step=".5" formControlName="quantity">
+        <ion-icon size="small" slot="start" name="remove-circle"></ion-icon>
+        <ion-icon slot="end" name="add-circle"></ion-icon>
+      </ion-range>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Quantity
+      </ion-label>
+      <ion-text name="information-circle" slot="end">{{subscriptionForm.controls['quantity'].value}}/Liters</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Start Date</ion-label>
+      <ion-datetime slot="end" formControlName="startDate"></ion-datetime>
+      <ion-icon name="calendar" slot="end"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button slot="end" (click)="addSubscription()" [disabled]="!subscriptionForm.valid">Subscribe</ion-button>
+  </ion-toolbar>
+</ion-footer>
