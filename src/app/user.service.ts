@@ -14,8 +14,8 @@ export class UserService {
   addUserAddress(){
     //return this.http.put();
   }
-  getUser(){
-
+  getUser(mobileNumber){
+    return this.http.get(`${this.url}?q={mobileNumber:'${mobileNumber}'}&apiKey=${this.apiKey}`)
   }
   updateUser(){
 

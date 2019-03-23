@@ -10,12 +10,12 @@ export class ProfilescreenComponent implements OnInit {
 
   constructor(public router:Router) { }
   name;
-  emailid;
+  emailId;
   ngOnInit() {}
 
   gotoAddressPage(){
     window.localStorage.setItem('name',this.name);
-    window.localStorage.setItem('emailid',this.emailid);
+    window.localStorage.setItem('emailId',this.emailId);
     this.router.navigate(['/home/address'])
   }
   

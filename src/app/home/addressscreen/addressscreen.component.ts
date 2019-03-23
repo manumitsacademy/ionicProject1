@@ -20,16 +20,19 @@ export class AddressscreenComponent implements OnInit {
   ngOnInit() {}
   gotoHomePage(){
     this.userDetails['name']=window.localStorage.getItem('name')
-    this.userDetails['emailid']=window.localStorage.getItem('emailid');
-    this.userDetails['mobilenumber']=window.localStorage.getItem('mobilenumber');
+    this.userDetails['emailId']=window.localStorage.getItem('emailId');
+    this.userDetails['mobileNumber']=window.localStorage.getItem('mobileNumber');
     this.userDetails['flatNumber']=this.flatNumber;
     this.userDetails['wing']=this.wing;
     this.userDetails['societyName']=this.societyName;
     this.userDetails['area']=this.area;
     this.userDetails['city']=this.city;
     this.userService.addUser(this.userDetails).subscribe((res)=>{
-      window.localStorage.setItem('wing',this.wing);
       window.localStorage.setItem('flatNumber',this.flatNumber);
+      window.localStorage.setItem('wing',this.wing);
+      window.localStorage.setItem('societyName',this.societyName);
+      window.localStorage.setItem('area',res[0].area);
+      window.localStorage.setItem('city',res[0].city);
       console.log(res);      
       this.router.navigate(['/home']);
     });

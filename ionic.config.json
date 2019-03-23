@@ -1,5 +1,8 @@
 {
   "name": "ionpro1",
-  "integrations": {},
-  "type": "angular"
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "4fd86df9"
 }
