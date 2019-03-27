@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: './list/list.module#ListPageModule'
   },
   {
+    path: 'report',
+    loadChildren: './report/report.module#ReportModule'
+  },
+  {
     path:'logout',
     component:LogoutComponent
   },

@@ -22,6 +22,11 @@ export class AppComponent {
       icon: 'list'
     },
     {
+      title: 'Report',
+      url: '/report',
+      icon: 'report'
+    },
+    {
       title:'logout',
       url:'/logout',
       icon:'log-out'
