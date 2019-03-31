@@ -13,7 +13,7 @@ export class PauseDeliveryComponent implements OnInit {
   pauseDeliveryForm:FormGroup;
   ngOnInit() {
     this.pauseDeliveryForm = this.fb.group({
-      mobileNumber:[window.localStorage.getItem('mobilenumber')],
+      mobileNumber:[window.localStorage.getItem('mobileNumber')],
       startDate:[],
       endDate:[]
     })
