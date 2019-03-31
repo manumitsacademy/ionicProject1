@@ -7,6 +7,7 @@ import { FlatWiseReportComponent } from './flat-wise-report/flat-wise-report.com
 import { HttpClientModule } from '@angular/common/http';
 import { ProductnamePipe } from './productname.pipe';
 import { IonicModule } from '@ionic/angular';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
 @NgModule({
   declarations: [ReportsHomeComponent, WingWiseReportComponent, FlatWiseReportComponent, ProductnamePipe],
   imports: [
@@ -32,6 +33,9 @@ import { IonicModule } from '@ionic/angular';
       }
       
     ])
+  ],
+  providers: [
+    FileOpener
   ]
 })
 export class ReportModule { }

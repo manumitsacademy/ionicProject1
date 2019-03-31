@@ -5,7 +5,7 @@ import { ReportModule } from './report/report.module'
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
- 
+import { FileOpener } from '@ionic-native/file-opener/ngx'; 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'
@@ -30,6 +30,7 @@ import { PauseDeliveryComponent } from './pause-delivery/pause-delivery.componen
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    FileOpener
     
   ],
   bootstrap: [AppComponent]

@@ -31,8 +31,8 @@ export class AddressscreenComponent implements OnInit {
       window.localStorage.setItem('flatNumber',this.flatNumber);
       window.localStorage.setItem('wing',this.wing);
       window.localStorage.setItem('societyName',this.societyName);
-      window.localStorage.setItem('area',res[0].area);
-      window.localStorage.setItem('city',res[0].city);
+      window.localStorage.setItem('area',this.area);
+      window.localStorage.setItem('city',this.city);
       console.log(res);      
       this.router.navigate(['/home']);
     });

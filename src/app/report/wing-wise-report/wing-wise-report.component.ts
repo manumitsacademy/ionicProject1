@@ -1,14 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ReportService } from '../report.service';
+import * as jsPDF from 'jspdf';
+import domtoimage from 'dom-to-image';
+import { File, IWriteOptions } from '@ionic-native/file/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
 //import { pdf } from 'cordova-pdf-generator/www/pdf'
 @Component({
   selector: 'app-wing-wise-report',
   templateUrl: './wing-wise-report.component.html',
-  styleUrls: ['./wing-wise-report.component.css']
+  styleUrls: ['./wing-wise-report.component.css'],
+  providers:[FileOpener,File]
 })
 export class WingWiseReportComponent implements OnInit {
  
-  constructor(public reportService:ReportService) { }
+  constructor(public reportService:ReportService,private file: File,
+            private fileOpener: FileOpener) { }
   wingWiseReportFlag=false;
   wingFlatWiseReportFlag=false;
   wingWiseData={};
@@ -21,18 +27,7 @@ export class WingWiseReportComponent implements OnInit {
   subscriptions;
 
   ngOnInit() {
-    
-    /*let options = {
-      documentSize: 'A4',
-      type: 'base64',
-      fileName: 'myFile.pdf'
-    }
-
-    pdf.fromURL('http://www.google.com', options)
-      .then(()=>'ok')
-      .catch((err)=>console.log(err));*/
-
-    this.reportService.getAllSubscriptions().subscribe((subscriptions)=>{
+      this.reportService.getAllSubscriptions().subscribe((subscriptions)=>{
       this.subscriptions=subscriptions;
       subscriptions.forEach((i,index)=>{
         var key;
@@ -78,5 +73,34 @@ export class WingWiseReportComponent implements OnInit {
       return res;
     })
   }
+  exportPdf() {
+    //this.presentLoading('Creating PDF file...');
+    const div = document.getElementById("printable-area");    
+    const options = { background: "white", height: div.clientHeight, width: div.clientWidth };
+    domtoimage.toPng(div).then((dataUrl)=> {
+      //Initialize JSPDF
+      alert(dataUrl)
+      var doc = new jsPDF("p","mm","a4");
+      //Add image Url to PDF
+      doc.addImage(dataUrl, 'PNG', 20, 20);
   
+      let pdfOutput = doc.output();
+      
+      // using ArrayBuffer will allow you to put image inside PDF
+      let buffer = new ArrayBuffer(pdfOutput.length);
+      let array = new Uint8Array(buffer);
+      for (var i = 0; i < pdfOutput.length; i++) {
+          array[i] = pdfOutput.charCodeAt(i);
+      }
+      this.file.writeFile(this.file.dataDirectory,"invoice11.pdf",buffer, {replace:true})
+      .then((success)=> {
+        alert("success"+success);
+        this.fileOpener.open(this.file.dataDirectory+"invoice11.pdf","application/pdf");
+      }).catch((err)=>{console.log(err)})
+    })
+    .catch(function (error) {
+     // this.loading.dismiss();
+      console.error('oops, something went wrong!', error);
+    });
+  }
 }

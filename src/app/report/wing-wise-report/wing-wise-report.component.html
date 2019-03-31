@@ -13,9 +13,8 @@
       WingFlatWiseReport
   </ion-button>
   <div class="container" *ngIf="wingWiseReportFlag==true">
-      <button (click)="createPdf()">Wingwise report PDF</button>
-      <button (click)="downloadPdf()">downloadPdf report PDF</button>
-      <table class="table table-striped table-bordered">
+      <button (click)="exportPdf()">downloadPdf report PDF</button>
+      <table class="table table-striped table-bordered" id="printable-area">
         <thead>          
           <tr>
             <th>Wing Name</th>
@@ -31,8 +30,8 @@
       </table>
     </div>
     <div class="container" *ngIf="wingFlatWiseReportFlag==true">
-      <button>Flatwise report PDF</button>
-      <table class="table table-bordered table-striped">
+      <button (click)="exportPdf()">Flatwise report PDF</button>
+      <table class="table table-bordered table-striped"  id="printable-area">
         <tr>
           <th>Wing</th>
           <th>flatNumber</th>

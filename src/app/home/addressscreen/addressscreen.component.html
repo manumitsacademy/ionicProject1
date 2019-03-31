@@ -9,12 +9,9 @@
 <ion-footer>
     <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-button (click)="gotoHomePage()">
-            Skip
-          </ion-button>
         </ion-buttons> 
         <ion-buttons slot="start">
-          <ion-button (click)="gotoHomePage()">
+          <ion-button (click)="gotoHomePage()" [disabled]="flatNumber == null || wing == null">
             Update
           </ion-button>
         </ion-buttons>        

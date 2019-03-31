@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
 import {HttpClientModule } from '@angular/common/http'
 import { HomePage } from './home.page';
 import { FirstscreenComponent } from './firstscreen/firstscreen.component'
@@ -39,6 +40,9 @@ import { OtpscreenComponent } from './otpscreen/otpscreen.component';
     ])
   ],
   declarations: [HomePage,FirstscreenComponent,AddressscreenComponent,ProfilescreenComponent,
-                  OtpscreenComponent]
+                  OtpscreenComponent],
+  providers: [
+    FileOpener
+  ]
 })
 export class HomePageModule {}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SubscriptionService } from '../subscription.service';
 
@@ -10,7 +10,8 @@ import { SubscriptionService } from '../subscription.service';
 })
 export class ProductSubscriptionComponent implements OnInit {
 
-  constructor(public aR:ActivatedRoute,public fb:FormBuilder,public sS:SubscriptionService) { }
+  constructor(public aR:ActivatedRoute,public fb:FormBuilder,
+              public sS:SubscriptionService,public router:Router) { }
   product;
   quantity=0;
   startDate;
@@ -39,6 +40,8 @@ export class ProductSubscriptionComponent implements OnInit {
     this.sS.addSubscription(this.subscriptionForm.value).subscribe((res)=>{
       console.log(res);
       this.sS.subscriptionEvent.emit();
+      alert("Product Subscribed Successfully")
+      this.router.navigate(['/home']);
     })
   }
 
