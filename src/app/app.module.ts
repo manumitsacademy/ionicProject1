@@ -14,9 +14,11 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { ProductSubscriptionComponent } from './product-subscription/product-subscription.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PauseDeliveryComponent } from './pause-delivery/pause-delivery.component';
+import { FilterSubscriptionsPipe } from './filter-subscriptions.pipe';
 @NgModule({
   declarations: [AppComponent,LogoutComponent,AddProductComponent,ProductSubscriptionComponent,
-                  PauseDeliveryComponent
+                  PauseDeliveryComponent,
+                  FilterSubscriptionsPipe
                 ],
   entryComponents: [],
   imports: [

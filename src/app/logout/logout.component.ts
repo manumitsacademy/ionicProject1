@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-logout',
@@ -9,11 +9,21 @@ import { Router } from '@angular/router';
 export class LogoutComponent implements OnInit {
 
   constructor(public router:Router) {
-    console.log("logout comp")
+    
+  }
+  ngOnInit() {
+   this.router.events.subscribe((res)=>{
+    if(res instanceof NavigationStart){
+      if(res.url=='/logout'){
+        console.log("logout comp")
+        window.localStorage.clear();
+        this.router.navigate(['/home/firstscreen'])
+      }
+    }
+   })
+  }
+  ngAfterViewInit(){
     window.localStorage.clear();
     this.router.navigate(['/home/firstscreen'])
   }
-
-  ngOnInit() {}
-
 }

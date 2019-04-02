@@ -24,7 +24,7 @@ export class FirstscreenComponent implements OnInit {
         window.localStorage.setItem('uid',res[0]._id.$oid);        
         if(res[0].emailId){
           window.localStorage.setItem('name',res[0].name);
-          window.localStorage.setItem('emailid',res[0].name);
+          window.localStorage.setItem('emailid',res[0].emailId);
            if(res[0].flatNumber){
             window.localStorage.setItem('flatNumber',res[0].flatNumber);
             window.localStorage.setItem('wing',res[0].wing);

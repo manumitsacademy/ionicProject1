@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Router, NavigationExtras } from '@angular/router';
+import { SubscriptionService } from '../subscription.service';
 
 @Component({
   selector: 'app-add-product',
@@ -9,12 +10,22 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 export class AddProductComponent implements OnInit {
 
-  constructor(public router:Router,public productService:ProductService) { }
-  productList;
+  constructor(public router:Router,public productService:ProductService, public sS:SubscriptionService) { }
+  productList;  
+  unSubscribedProducts;
   ngOnInit() {
-    this.productService.getAllProducts().subscribe((res)=>{
+    this.productService.getAllProducts().toPromise().then((res)=>{
       this.productList=res;
-    })
+      console.log("Product List ",this.productList);
+      return this.sS.getUserSubscribedProducts(localStorage.getItem('mobileNumber')).toPromise()
+    }).then((subscribedProducts:any[])=>{
+        console.log("subscribedProducts",subscribedProducts)
+          this.unSubscribedProducts = this.productList.filter((product)=>{
+          return  subscribedProducts.every((sproduct)=>{
+                    return sproduct.productId!=product._id.$oid
+                  })
+        });
+      })
   }
   gotoProductSubscription(product){
     console.log(product)

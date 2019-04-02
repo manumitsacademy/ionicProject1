@@ -57,10 +57,11 @@ export class HomePage {
     console.log("HIHIH destroy")
   }
   getSubscriptions():Observable<any>{
-    return this.sS.getAllSubscriptions(window.localStorage.getItem('mobilenumber'))
+    return this.sS.getUserSubscribedProducts(window.localStorage.getItem('mobileNumber'))
     .pipe(map((res)=>{
       var products = Object.keys(res).map((k)=>{return res[k]})  
       console.log("length",products.length);
+      console.log("User Subscriptions",res)
       return res;
     }));
   }

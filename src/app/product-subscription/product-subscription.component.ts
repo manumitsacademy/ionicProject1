@@ -31,7 +31,7 @@ export class ProductSubscriptionComponent implements OnInit {
       this.product=res;
       this.subscriptionForm.controls['productId'].setValue(res.productId);
       this.subscriptionForm.controls['productName'].setValue(res.productName);
-      this.subscriptionForm.controls['mobileNumber'].setValue(window.localStorage.getItem('mobilenumber'))
+      this.subscriptionForm.controls['mobileNumber'].setValue(window.localStorage.getItem('mobileNumber'))
       this.subscriptionForm.controls['wing'].setValue(window.localStorage.getItem('wing'));
       this.subscriptionForm.controls['flatNumber'].setValue(window.localStorage.getItem('flatNumber'));
     })

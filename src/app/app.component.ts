@@ -24,7 +24,7 @@ export class AppComponent {
     {
       title: 'Report',
       url: '/report',
-      icon: 'report'
+      icon: 'logo-buffer'
     },
     {
       title:'logout',

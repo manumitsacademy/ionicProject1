@@ -7,7 +7,7 @@
 </ion-header> 
 <ion-content>
   <ion-list>
-    <ion-item  *ngFor="let product of productList" (click)="gotoProductSubscription(product)">
+    <ion-item  *ngFor="let product of unSubscribedProducts" (click)="gotoProductSubscription(product)">
       <ion-thumbnail item-start>
         <img [src]="product.productImageUrl">
       </ion-thumbnail>
